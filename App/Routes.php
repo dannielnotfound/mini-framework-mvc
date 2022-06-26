@@ -7,6 +7,7 @@ class Routes{
     public function __construct()
     {
         $this->initRoutes();
+        $this->run($this->getUrl());
     }
 
     public function getRoutes(){
@@ -22,17 +23,33 @@ class Routes{
             'controller' => 'indexController',
             'action' => 'index'
         );
+        $routes['contato'] = array(
+            'route' => '/contato',
+            'controller' => 'indexController',
+            'action' => 'contato'
+        );
         $routes['sobre_nos'] = array(
-            'route' => 'sobre_nos',
+            'route' => '/sobre_nos',
             'controller' => 'indexController',
             'action' => 'sobreNos'
         ); 
         $this->setRoutes($routes);
     }
 
+    public function run($url){
+        foreach($this->getRoutes() as $key => $route){
+            if($url == $route['route']){
+                $class = "App\\Controllers\\".ucfirst($route['controller']);
+                $controller = new $class;
+                $action = $route['action'];
+                $controller->$action();
+            }
+        }
+    }
+
     public function getUrl(){
         return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); //variavel superglobal do PHP; Array que retorna os detalhes do servidor da aplicação
-        //return parse_url('www.google.com/gmail?x10'); // return query string params
     }
+
 }
 ?>
