@@ -1,6 +1,20 @@
 <?php 
 namespace App;
-class Route{
+
+class Routes{
+    private $routes;
+
+    public function __construct()
+    {
+        $this->initRoutes();
+    }
+
+    public function getRoutes(){
+        return $this->routes;
+    }
+    public function setRoutes(array $routes){
+        $this->routes = $routes;
+    }
     public function initRoutes(){
         $routes = [];
         $routes['home'] = array(
@@ -13,6 +27,7 @@ class Route{
             'controller' => 'indexController',
             'action' => 'sobreNos'
         ); 
+        $this->setRoutes($routes);
     }
 
     public function getUrl(){

@@ -1,10 +1,13 @@
 <?php
 require_once "../vendor/autoload.php";
 
-$route = new \App\Route;
+$route = new \App\Routes;
 print_r($route->getUrl());
-
 echo "<hr>";
-echo "<h1> Olá mundo, olá Baaaackend! </>";
+echo "<pre>";
+print_r($route->getRoutes());
+echo "</pre>";
+echo "<hr>";
+echo "<h1> Olá mundo, olá Backend! </>";
 
 ?>
