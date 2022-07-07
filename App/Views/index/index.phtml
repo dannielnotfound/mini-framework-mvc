@@ -1,9 +1,10 @@
 <?php
     echo "<h2>Index</h2>";
     echo "Chegamos ao IndexController e disparamos a action index";
-    echo "<hr>";
-    echo "<br>";
-    foreach($this->view->dados as $indice => $valor){
-        echo $valor. '<br />';
+    echo "<br/>";
+    foreach($this->view->dados as $indice => $produto){
+        echo $produto['id'] . ' - ' . $produto['descricao'] . ' - ' . $produto['preco'];
+        echo '<br />';
     }
+
 ?>

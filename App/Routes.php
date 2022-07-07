@@ -3,6 +3,7 @@ namespace App;
 use ns\Init\Bootstrap;
 class Routes extends Bootstrap{
    
+    
     protected function initRoutes(){
         $routes = [];
         $routes['home'] = array(

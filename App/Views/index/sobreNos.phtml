@@ -2,9 +2,12 @@
 <?php
     echo "<h2>Sobre nos</h2>";
     echo "Chegamos ao IndexController e disparamos a action sobreNos";
-    echo "<hr>";
     echo "<br>";
-    foreach($this->view->dados as $indice => $valor){
-        echo $valor. '<br />';
+
+    foreach($this->view->dados as $indice => $info){
+        echo "<h1>".$info['titulo']."</h1>";
+        echo $info['descricao'];
+        echo "<br/>";
+
     }
 ?>
